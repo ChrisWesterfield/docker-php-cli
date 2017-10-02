@@ -11,6 +11,8 @@ RUN apt-get update && \
     libz-dev \
     graphviz \
     cron \
+    nodejs \
+    nodejs-legacy \
     tesseract-ocr \
     tesseract-ocr-eng \
     tesseract-ocr-deu \
@@ -47,7 +49,7 @@ RUN apt-get update && \
     echo "xdebug.remote_connect_back = 1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && \
     echo "xdebug.profiler_enable = 0" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && \
     echo "xdebug.remote_host = 10.254.254.254" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && \
-    apt-get purge git cpp openssh-server openssh-client m4 patch exim* perl  -y && \
+    apt-get purge cpp openssh-server openssh-client m4 patch exim* perl  -y && \
     apt-get autoremove -y && \
     apt-get autoclean && \
     rm -Rf /usr/src/* && \
