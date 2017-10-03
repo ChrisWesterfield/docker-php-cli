@@ -52,6 +52,7 @@ RUN apt-get update && \
     apt-get purge cpp openssh-server openssh-client m4 patch exim* perl  -y && \
     apt-get autoremove -y && \
     apt-get autoclean && \
+    apt-get install git -y && \
     rm -Rf /usr/src/* && \
     rm -rf /var/lib/apt/lists/*
 
