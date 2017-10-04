@@ -54,7 +54,13 @@ RUN apt-get update && \
     apt-get autoclean && \
     apt-get install git -y && \
     rm -Rf /usr/src/* && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* && \
+    echo "error_log = /var/log/php_errors.log" >> /usr/local/etc/php/conf.d/settings.ini && \
+    touch /var/log/php_errors.log && \
+    chown www-data:www-data /var/log/php_errors.log && \
+    chmod 0777 /var/log/php_errors.log
 
 WORKDIR /var/www
 USER www-data
+
+CMD ["tail", "-f", "/var/log/php_errors.log"]
